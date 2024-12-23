@@ -79,8 +79,8 @@ const BlogDetails = () => {
   } = blog;
 
   return (
-    <div>
-      <div className="container mx-auto p-6 my-10 bg-white rounded-lg shadow-lg">
+    <div className="flex flex-col md:flex-row gap-5">
+      <div className="container mx-auto md:w-[70%] p-6 my-10 bg-white rounded-lg shadow-lg">
         {/* Blog Header */}
         <div className="space-y-3">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">{title}</h1>
@@ -93,7 +93,6 @@ const BlogDetails = () => {
             alt={title}
             className="w-full object-cover rounded-lg"
           />
-          <p className="text-sm text-gray-500 mb-4">Category: {category}</p>
         </div>
 
         {/* Blog Content */}
@@ -104,13 +103,16 @@ const BlogDetails = () => {
             </h2>
             <p className="text-gray-600 mt-2">{longDescripntion}</p>
           </div>
-          <div>
-            {user?.email === buyerInfo && (
-              <Link to={`/update/${_id}`}>
-                <button className="btn bg-green-500">Update Now</button>
-              </Link>
-            )}
-          </div>
+          <p className="text-sm text-gray-500 mb-4 ">
+            <span className="text-xl font-bold">Category:</span> {category}
+          </p>
+        </div>
+        <div className="py-5">
+          {user?.email === buyerInfo && (
+            <Link to={`/update/${_id}`}>
+              <button className="btn bg-green-500">Update Now</button>
+            </Link>
+          )}
         </div>
 
         {/* Comment Section */}
@@ -133,27 +135,35 @@ const BlogDetails = () => {
                 Submit Comment
               </button>
             </form>
-            <div className="mb-6">
-              <h1>ALl Comment{comments.length}</h1>
-              {comments.map((cmt, index) => (
-                <div key={index} className="p-4 border-b border-gray-200">
-                  <div>
-                    <img
-                      referrerPolicy="no-referrer"
-                      className="w-12 h-12 rounded-full"
-                      src={cmt?.photo}
-                      alt=""
-                    />
-                  </div>
-                  <p className="text-sm text-gray-600">{cmt.name}</p>
-                  <p className="text-gray-800">{cmt.comment}</p>
-                </div>
-              ))}
-            </div>
           </div>
         ) : (
           <p className="text-red-500">Owner can not commnet right now</p>
         )}
+      </div>
+      {/* Comments  */}
+      <div className="mb-6 px-8 md:px-2 md:w-[30%]">
+        <h1 className="text-3xl font-bold py-12">Top Latest Comment</h1>
+        {comments.map((cmt, index) => (
+          <div
+            key={index}
+            className="p-4 mb-8 border-b flex gap-2 items-center border-gray-200"
+          >
+            <div>
+              <img
+                referrerPolicy="no-referrer"
+                className="w-12 h-12 rounded-full"
+                src={cmt?.photo}
+                alt=""
+              />
+            </div>
+            <div>
+              <h2 className="text-lg text-gray-600 font-semibold">
+                {cmt.name}
+              </h2>
+              <p className="text-gray-800 text-sm">{cmt.comment}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

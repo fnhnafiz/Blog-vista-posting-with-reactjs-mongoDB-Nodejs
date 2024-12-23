@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../Hooks/useAuth";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const WishList = () => {
   const { user } = useAuth();
@@ -27,6 +28,7 @@ const WishList = () => {
       if (data.deletedCount > 0) {
         const remaining = wishlist.filter((item) => item._id !== id);
         setWishlist(remaining);
+        toast.success("Remove from wishlist");
         console.log("Item deleted successfully. Remaining items:", remaining);
       } else {
         console.error("Failed to delete wishlist item.");
@@ -37,7 +39,6 @@ const WishList = () => {
   };
   return (
     <div>
-      <h1>I am WIshLish {wishlist.length}</h1>
       <section
         className={`px-2 md:px-5 container mx-auto w-full xl:w-10/12 flex justify-center items-center overflow-x-auto min-h-[350px] pt-[120px] py-10`}
       >

@@ -1,7 +1,6 @@
 import toast from "react-hot-toast";
 
 import logo from "../../src/assets/logo.png";
-import bgImg from "../../src/assets/register.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/useAuth";
 
@@ -19,6 +18,22 @@ const Register = () => {
     const pass = form.password.value;
     console.log({ email, pass, name, photo });
 
+    // Password validation
+    const passwordRegex = /^(?=.*[A-Z]).*$/;
+    if (!passwordRegex.test(pass)) {
+      toast.error("Password must: Uppercase");
+      return;
+    }
+    const lowercase = /^(?=.*[a-z]).*$/;
+    if (!lowercase.test(pass)) {
+      toast.error("Password must: lowercase");
+      return;
+    }
+    if (pass.length < 6) {
+      toast.error("Password must be  6 characters");
+      return;
+    }
+
     try {
       //2. User Registration
       const result = await createUser(email, pass);
@@ -26,7 +41,7 @@ const Register = () => {
       await updateUserProfile(name, photo);
       setUser({ ...result.user, photoURL: photo, displayName: name });
       toast.success("Signup Successful");
-      // navigate("/");
+      navigate("/");
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
@@ -184,12 +199,7 @@ const Register = () => {
             <span className="w-1/5 border-b  md:w-1/4"></span>
           </div>
         </div>
-        <div
-          className="hidden bg-cover bg-center lg:block lg:w-1/2"
-          style={{
-            backgroundImage: `url(${bgImg})`,
-          }}
-        ></div>
+        <div className="hidden bg-bannerImg  bg-cover bg-center lg:block lg:w-1/2"></div>
       </div>
     </div>
   );
