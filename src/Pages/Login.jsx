@@ -2,7 +2,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/useAuth";
 import toast from "react-hot-toast";
 import logo from "../../src/assets/logo.png";
-import bgImg from "../../src/assets/login.jpg";
 
 const Login = () => {
   const navigate = useNavigate();

@@ -45,7 +45,7 @@ const WishList = () => {
         <table className="w-full border-collapse border text-center border-gray-200">
           <thead className="bg-gray-100">
             <tr>
-              <th className="border border-gray-300 px-1 py-2">#</th>
+              <th className="border border-gray-300 px-1 py-2">SL NO</th>
               <th className="border border-gray-300 px-1 py-2">Blog Title</th>
               <th className="border border-gray-300 px-1 py-2">Category</th>
               <th className="border border-gray-300 px-1 py-2">Date & Time</th>

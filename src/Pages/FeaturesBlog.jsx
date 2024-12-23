@@ -7,7 +7,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import axios from "axios";
-import { ArrowUpDown, FileText, Search, Tag, User } from "lucide-react";
+import { ArrowUpDown, FileText, Search, Tag } from "lucide-react";
 import { useEffect, useState } from "react";
 import { FaFileAlt } from "react-icons/fa";
 
