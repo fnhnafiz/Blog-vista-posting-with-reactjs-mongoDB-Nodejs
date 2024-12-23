@@ -80,28 +80,27 @@ const BlogDetails = () => {
 
   return (
     <div>
-      <div className="max-w-4xl mx-auto p-6 my-10 bg-white rounded-lg shadow-lg">
+      <div className="container mx-auto p-6 my-10 bg-white rounded-lg shadow-lg">
         {/* Blog Header */}
-        <div>
+        <div className="space-y-3">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">{title}</h1>
-          <p className="text-sm text-gray-500 mb-4">Category: {category}</p>
+          <p className="text-gray-600 mt-2">
+            Short Description: {sortDescription}
+          </p>
+
           <img
             src={imageUrl}
             alt={title}
-            className="w-full h-64 object-cover rounded-lg"
+            className="w-full object-cover rounded-lg"
           />
+          <p className="text-sm text-gray-500 mb-4">Category: {category}</p>
         </div>
 
-        {/* Blog Content */}
-        <div className="mt-6 ">
-          <h2 className="text-2xl font-semibold text-gray-800">Description</h2>
-          <p className="text-gray-600 mt-2">{sortDescription}</p>
-        </div>
         {/* Blog Content */}
         <div className="mt-6 flex justify-between items-center">
           <div>
             <h2 className="text-2xl font-semibold text-gray-800">
-              Description
+              Main Description:
             </h2>
             <p className="text-gray-600 mt-2">{longDescripntion}</p>
           </div>
@@ -118,7 +117,7 @@ const BlogDetails = () => {
         {user?.email !== buyerInfo ? (
           <div className="mt-10">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              Leave a Comment
+              Write a Comment
             </h2>
             <form onSubmit={handleSubmitCommet} className="flex flex-col gap-4">
               <textarea

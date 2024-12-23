@@ -70,11 +70,10 @@ const WishList = () => {
                 <td className="border border-gray-300 py-2">{item.addDate}</td>
                 <td className="border  border-gray-300 py-2">
                   <div className="flex items-center justify-center gap-3">
-                    <Link
-                      to={`/updateReview/${item._id}`}
-                      className="bg-green-500 inline-block text-white px-2 py-1 ml-2 rounded"
-                    >
-                      {/* <MdEditDocument /> */}
+                    <Link to={`/blog/${item._id}`}>
+                      <button className="bg-blue-500 text-white text-sm py-2 px-4 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-300 transition duration-200">
+                        Details
+                      </button>
                     </Link>
                     <button
                       onClick={() => handleWishListDelete(item._id)}

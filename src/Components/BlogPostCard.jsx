@@ -39,33 +39,32 @@ const BlogPostCard = ({ blog }) => {
   };
 
   return (
-    <div className="max-w-sm mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+    <div className="container mx-auto bg-white shadow-md rounded-lg overflow-hidden flex items-center gap-8 space-x-6 p-6 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
       {/* Blog Image */}
-      <div className="relative">
-        <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
-        <span className="absolute top-2 right-2 bg-blue-500 text-white text-xs uppercase py-1 px-3 rounded">
-          {category}
-        </span>
+      <div className="w-1/2">
+        <img
+          src={imageUrl}
+          alt={title}
+          className="w-full h-72 object-cover rounded-md"
+        />
       </div>
 
       {/* Blog Content */}
-      <div className="p-4">
-        <h3 className="text-lg font-bold text-gray-700 mb-2">{title}</h3>
-        <p className="text-sm text-gray-500 mb-4">{sortDescription}</p>
-        <p>{date}</p>
-
-        {/* Buttons */}
-        <div className="flex justify-between items-center">
+      <div className="w-1/2 space-y-4 ">
+        <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
+        <p className="text-gray-600 text-sm leading-6">{sortDescription}</p>
+        <p className="text-gray-400 text-sm italic">{date}</p>
+        <div className="flex items-center space-x-4">
           <Link to={`/blog/${_id}`}>
-            <button className="bg-blue-500 text-white text-sm py-2 px-4 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-300 transition duration-200">
-              Details
+            <button className="bg-blue-600 text-white text-sm py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">
+              Read Blog
             </button>
           </Link>
           <button
             onClick={handleWishlist}
-            className="bg-gray-200 text-gray-700 text-sm py-2 px-4 rounded-md hover:bg-gray-300 focus:ring-2 focus:ring-gray-300 transition duration-200"
+            className="bg-gray-100 text-gray-700 text-sm py-2 px-4 rounded-md hover:bg-gray-200 transition duration-200"
           >
-            Add to Wishlist
+            Add to wishlist
           </button>
         </div>
       </div>
