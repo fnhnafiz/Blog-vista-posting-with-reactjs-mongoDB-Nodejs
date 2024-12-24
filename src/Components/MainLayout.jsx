@@ -2,6 +2,8 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Newsletter from "./Newsletter";
+import QuotePost from "./QuotePost";
+import RelatedPost from "./RelatedPost";
 
 const MainLayout = () => {
   return (
@@ -14,7 +16,13 @@ const MainLayout = () => {
           <Outlet></Outlet>
         </section>
         <section>
+          <RelatedPost></RelatedPost>
+        </section>
+        <section>
           <Newsletter></Newsletter>
+        </section>
+        <section>
+          <QuotePost></QuotePost>
         </section>
       </main>
       <footer>

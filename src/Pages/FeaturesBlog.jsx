@@ -6,23 +6,26 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import axios from "axios";
 
-import { ArrowUpDown, FileText, Mail, Search, Tag } from "lucide-react";
+import { ArrowUpDown, FileText, Search, Tag } from "lucide-react";
 import { useEffect, useState } from "react";
 import { FaFileAlt } from "react-icons/fa";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+// import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const FeaturesBlog = () => {
-  const axiosSecure = useAxiosSecure();
+  // const axiosSecure = useAxiosSecure();
   const [featureBlog, setFeatureBlog] = useState([]);
   const [sorting, setSorting] = useState([]);
   const [globalFilter, setGlobalFilter] = useState([]);
-  console.log(featureBlog);
+  // console.log(featureBlog);
 
   useEffect(() => {
     const fetchAllBlogData = async () => {
       try {
-        const { data } = await axiosSecure.get(`/features-blogs`);
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/features-blogs`
+        );
         setFeatureBlog(data);
       } catch (error) {
         console.error("Error fetching blog data:", error);
@@ -82,6 +85,15 @@ const FeaturesBlog = () => {
 
   return (
     <div className="flex flex-col min-h-screen max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="mb-4 text-center">
+        <h2 className="text-3xl font-extrabold text-gray-800">
+          Top-Ranked Blog Posts
+        </h2>
+        <p className="text-lg text-gray-600 mt-2">
+          Explore the highest-rated blog posts based on user feedback. These
+          posts are the most popular and insightful.
+        </p>
+      </div>
       <div className="mb-4 relative">
         <input
           value={globalFilter ?? ""}

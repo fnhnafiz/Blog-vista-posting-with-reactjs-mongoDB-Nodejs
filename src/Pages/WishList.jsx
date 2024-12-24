@@ -36,56 +36,76 @@ const WishList = () => {
   };
   return (
     <div>
-      <section
-        className={`px-2 md:px-5 container mx-auto w-full xl:w-10/12 flex justify-center items-center overflow-x-auto min-h-[350px] pt-[120px] py-10`}
-      >
-        <table className="w-full border-collapse border text-center border-gray-200">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="border border-gray-300 px-1 py-2">SL NO</th>
-              <th className="border border-gray-300 px-1 py-2">Blog Title</th>
-              <th className="border border-gray-300 px-1 py-2">Category</th>
-              <th className="border border-gray-300 px-1 py-2">Date & Time</th>
-              <th className="border border-gray-300 px-1 py-2">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {wishlist.length < 1 && (
+      <section className="px-2 md:px-5 container mx-auto w-full xl:w-10/12 flex flex-col justify-center items-center overflow-x-auto  pt-[120px] py-10">
+        {/* Heading Section */}
+        <div className="mb-6 text-center">
+          <h2 className="text-4xl font-extrabold text-gray-900">
+            Your Wishlist
+          </h2>
+          <p className="text-lg text-gray-600 mt-3">
+            All the blog posts you've added to your wishlist are listed here.
+            You can easily view details or remove them if needed.
+          </p>
+        </div>
+
+        {/* Table Section */}
+        <div className="overflow-x-auto bg-white shadow-lg rounded-lg">
+          <table className="w-full table-auto border-collapse text-sm text-gray-700">
+            {/* Table Header */}
+            <thead className="bg-green-600 text-white">
               <tr>
-                <td
-                  colSpan="6"
-                  className="py-4 text-xl md:text-2xl font-semibold text-slate-500"
-                >
-                  There is No wishlist found
-                </td>
+                <th className="py-3 px-6 text-left">SL NO</th>
+                <th className="py-3 px-6 text-left">Blog Title</th>
+                <th className="py-3 px-6 text-left">Category</th>
+                <th className="py-3 px-6 text-left">Date & Time</th>
+                <th className="py-3 px-6 text-left">Actions</th>
               </tr>
-            )}
-            {wishlist?.map((item, i) => (
-              <tr key={item._id}>
-                <td className="border border-gray-300 py-2">{i + 1}</td>
-                <td className="border border-gray-300 py-2">{item.title}</td>
-                <td className="border border-gray-300 py-2">{item.category}</td>
-                <td className="border border-gray-300 py-2">{item.addDate}</td>
-                <td className="border  border-gray-300 py-2">
-                  <div className="flex items-center justify-center gap-3">
-                    <Link to={`/blog/${item._id}`}>
-                      <button className="bg-blue-500 text-white text-sm py-2 px-4 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-300 transition duration-200">
-                        Details
-                      </button>
-                    </Link>
-                    <button
-                      onClick={() => handleWishListDelete(item._id)}
-                      className="bg-red-500 text-white px-2 py-1 rounded btn"
-                    >
-                      Delete
-                      {/* <MdDeleteForever /> */}
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            {/* Table Body */}
+            <tbody className="divide-y divide-gray-200">
+              {wishlist.length < 1 ? (
+                <tr>
+                  <td
+                    colSpan="5"
+                    className="py-4 text-xl font-semibold text-center text-gray-500"
+                  >
+                    No items found in your wishlist.
+                  </td>
+                </tr>
+              ) : (
+                wishlist?.map((item, i) => (
+                  <tr
+                    key={item._id}
+                    className="hover:bg-gray-50 transition duration-200"
+                  >
+                    <td className="py-3 px-6">{i + 1}</td>
+                    <td className="py-3 px-6 font-medium text-gray-800">
+                      {item.title}
+                    </td>
+                    <td className="py-3 px-6 text-gray-600">{item.category}</td>
+                    <td className="py-3 px-6 text-gray-500">{item.addDate}</td>
+                    <td className="py-3 px-6">
+                      <div className="flex gap-3 justify-center">
+                        <Link to={`/blog/${item._id}`}>
+                          <button className="bg-blue-500 text-white text-sm py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-200">
+                            View Details
+                          </button>
+                        </Link>
+                        <button
+                          onClick={() => handleWishListDelete(item._id)}
+                          className="bg-orange-500 text-white text-sm py-2 px-4 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-red-300 transition duration-200"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   );

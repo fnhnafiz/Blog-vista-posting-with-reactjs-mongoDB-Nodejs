@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import BlogPostCard from "../Components/BlogPostCard";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+import axios from "axios";
+// import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const AllBlog = () => {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
-  const axiosSecure = useAxiosSecure();
+  // const axiosSecure = useAxiosSecure();
   // console.log(search);
   // console.log(category);
 
@@ -14,8 +15,10 @@ const AllBlog = () => {
     // Fetch blogs based on search and category
     const fetchAllBlogData = async () => {
       try {
-        const { data } = await axiosSecure.get(
-          `/all-blogs?search=${search}&category=${category}`
+        const { data } = await axios.get(
+          `${
+            import.meta.env.VITE_API_URL
+          }/all-blogs?search=${search}&category=${category}`
         );
         setBlogs(data);
       } catch (error) {
@@ -30,6 +33,15 @@ const AllBlog = () => {
 
   return (
     <div>
+      <div className="text-center my-8">
+        <h1 className="text-4xl font-extrabold text-gray-800">
+          All Blog Posts
+        </h1>
+        <p className="text-lg text-gray-600 mt-2">
+          Explore a variety of blog posts from different categories. Use the
+          search bar or select a category to find posts that interest you.
+        </p>
+      </div>
       <div className="flex justify-around items-center mt-12">
         <div>
           <h1 className="text-3xl font-extrabold text-center ">

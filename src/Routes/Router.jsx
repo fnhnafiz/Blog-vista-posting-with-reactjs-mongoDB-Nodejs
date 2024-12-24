@@ -25,23 +25,19 @@ const Router = createBrowserRouter([
       },
       {
         path: "/add-blog",
-        element: <AddBlog></AddBlog>,
+        element: (
+          <PrivateRoute>
+            <AddBlog></AddBlog>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/all-blogs",
-        element: (
-          <PrivateRoute>
-            <AllBlog></AllBlog>
-          </PrivateRoute>
-        ),
+        element: <AllBlog></AllBlog>,
       },
       {
         path: "/featured-blogs",
-        element: (
-          <PrivateRoute>
-            <FeaturesBlog></FeaturesBlog>
-          </PrivateRoute>
-        ),
+        element: <FeaturesBlog></FeaturesBlog>,
       },
       {
         path: "/wishlist",
