@@ -49,7 +49,9 @@ const AllBlog = () => {
           </h1>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">
-          <h4>Choose Your Category:</h4>
+          <p className="text-xl font-bold text-green-500">
+            Choose Your Category:
+          </p>
           <div>
             <select
               value={category}

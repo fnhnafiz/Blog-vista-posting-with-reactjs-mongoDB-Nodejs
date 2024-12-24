@@ -88,13 +88,13 @@ const WishList = () => {
                     <td className="py-3 px-6">
                       <div className="flex gap-3 justify-center">
                         <Link to={`/blog/${item._id}`}>
-                          <button className="bg-blue-500 text-white text-sm py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-200">
+                          <button className="px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg hover:from-red-700 hover:to-red-800 transition-all duration-200">
                             View Details
                           </button>
                         </Link>
                         <button
                           onClick={() => handleWishListDelete(item._id)}
-                          className="bg-orange-500 text-white text-sm py-2 px-4 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-red-300 transition duration-200"
+                          className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg hover:from-red-700 hover:to-red-800 transition-all duration-200"
                         >
                           Remove
                         </button>

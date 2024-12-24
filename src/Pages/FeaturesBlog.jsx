@@ -108,13 +108,13 @@ const FeaturesBlog = () => {
       </div>
       <div className="overflow-x-auto bg-white shadow-md rounded-lg">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-gradient-to-r from-red-600 to-red-700 text-white">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className="px-6 py-3 text-left text-xs font-bold text-green-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider"
                   >
                     <div
                       {...{

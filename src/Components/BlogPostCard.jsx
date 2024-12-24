@@ -66,13 +66,13 @@ const BlogPostCard = ({ blog }) => {
         <p className="text-gray-400 text-sm italic">{date}</p>
         <div className="flex justify-end  space-x-4">
           <Link to={`/blog/${_id}`}>
-            <button className="bg-blue-600 text-white text-sm py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">
+            <button className="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition  duration-200">
               Read Blog
             </button>
           </Link>
           <button
             onClick={handleWishlist}
-            className="bg-gray-100 text-gray-700 text-sm py-2 px-4 rounded-md hover:bg-gray-200 transition duration-200"
+            className="px-6 py-3 bg-gradient-to-r from-yello-600 to-yellow-500 text-black hover:text-white font-medium rounded-lg shadow-md hover:shadow-lg hover:from-yellow-700 hover:to-yellow-800 transition-all duration-200"
           >
             Add to wishlist
           </button>

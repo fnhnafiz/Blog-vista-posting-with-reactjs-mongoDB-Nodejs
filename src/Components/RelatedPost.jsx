@@ -2,27 +2,27 @@ const RelatedPost = () => {
   const posts = [
     {
       title: "5 Tips to Boost Your Blogging Skills",
-      category: "Blogging",
+      category: "Technology",
       date: "December 20, 2024",
-      image: "https://via.placeholder.com/150",
+      image: "https://i.ibb.co.com/wwnk8Tf/blog-post.webp",
     },
     {
       title: "Why Content is the King of SEO",
-      category: "SEO",
+      category: "Health",
       date: "December 18, 2024",
-      image: "https://via.placeholder.com/150",
+      image: "https://i.ibb.co.com/TgHMTk9/94868.jpg",
     },
     {
       title: "The Future of AI in Blogging Platforms",
-      category: "Technology",
+      category: "Travel",
       date: "December 15, 2024",
-      image: "https://via.placeholder.com/150",
+      image: "https://i.ibb.co.com/59C2KFm/226.jpg",
     },
     {
       title: "How to Monetize Your Blog Effectively",
-      category: "Monetization",
+      category: "Education",
       date: "December 12, 2024",
-      image: "https://via.placeholder.com/150",
+      image: "https://i.ibb.co.com/f0k3wBX/13914817-5396346.jpg",
     },
   ];
 

@@ -113,7 +113,7 @@ const BlogDetails = () => {
         <div className="py-5">
           {user?.email === buyerInfo && (
             <Link to={`/update/${_id}`}>
-              <button className="btn bg-green-500 block text-end">
+              <button className="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition">
                 Update Now
               </button>
             </Link>

@@ -19,7 +19,7 @@ const Newsletter = () => {
       {/* Heading */}
       <h2 className="text-4xl text-center font-bold mb-8">
         Join the{" "}
-        <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
           Blog Community
         </span>
       </h2>
