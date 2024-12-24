@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import BlogPostCard from "../Components/BlogPostCard";
 import axios from "axios";
 import Banner from "../Components/Banner";
+import { motion } from "framer-motion";
+import { fadeIn } from "../varriants";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -24,7 +26,13 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <div>
-        <div className="pt-6 space-y-3 px-6 md:px-24">
+        <motion.div
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.3 }}
+          className="pt-6 space-y-3 px-6 md:px-24"
+        >
           <h1 className="font-extrabold text-5xl text-center">
             Recent all Blogs
           </h1>
@@ -36,8 +44,8 @@ const Home = () => {
             reiciendis quas recusandae aliquam optio architecto dignissimos
             error molestiae voluptatum dolor accusamus? Voluptates, dolor!
           </p>
-        </div>
-        <div className="grid grid-cols-1  gap-6 my-12">
+        </motion.div>
+        <div>
           {blogs.map((blog) => (
             <BlogPostCard key={blog._id} blog={blog} />
           ))}

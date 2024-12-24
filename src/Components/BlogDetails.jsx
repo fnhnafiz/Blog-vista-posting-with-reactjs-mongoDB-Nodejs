@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -44,10 +45,12 @@ const BlogDetails = () => {
       //   setComments((previousComments) => [commentData, ...previousComments]);
       // }
       fetchComments();
+      toast.success("Comment Successfully");
       form.reset();
       //   console.log("Response from server:", data);
     } catch (error) {
       console.error("Error posting blog data:", error);
+      toast.error(error.response.data.message);
     }
   };
 
@@ -96,7 +99,7 @@ const BlogDetails = () => {
         </div>
 
         {/* Blog Content */}
-        <div className="mt-6 flex justify-between items-center">
+        <div className="mt-6 flex justify-between ">
           <div>
             <h2 className="text-2xl font-semibold text-gray-800">
               Main Description:
@@ -110,35 +113,34 @@ const BlogDetails = () => {
         <div className="py-5">
           {user?.email === buyerInfo && (
             <Link to={`/update/${_id}`}>
-              <button className="btn bg-green-500">Update Now</button>
+              <button className="btn bg-green-500 block text-end">
+                Update Now
+              </button>
             </Link>
           )}
         </div>
 
         {/* Comment Section */}
-        {user?.email !== buyerInfo ? (
-          <div className="mt-10">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              Write a Comment
-            </h2>
-            <form onSubmit={handleSubmitCommet} className="flex flex-col gap-4">
-              <textarea
-                name="comment"
-                placeholder="Write your comment here..."
-                className="w-full p-4 text-gray-700 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                rows={3}
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-300 self-end"
-              >
-                Submit Comment
-              </button>
-            </form>
-          </div>
-        ) : (
-          <p className="text-red-500">Owner can not commnet right now</p>
-        )}
+        <div className="mt-10">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            Write a Comment
+          </h2>
+          <form onSubmit={handleSubmitCommet} className="flex flex-col gap-4">
+            <textarea
+              name="comment"
+              placeholder="Write your comment here..."
+              className="w-full p-4 text-gray-700 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              rows={3}
+            ></textarea>
+            <button
+              // disabled={user?.email === buyerInfo}
+              type="submit"
+              className="bg-blue-500  text-white px-6 py-2 rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-300 self-end"
+            >
+              Submit Comment
+            </button>
+          </form>
+        </div>
       </div>
       {/* Comments  */}
       <div className="mb-6 px-8 md:px-2 md:w-[30%]">

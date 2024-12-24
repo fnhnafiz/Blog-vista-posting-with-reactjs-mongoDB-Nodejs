@@ -7,7 +7,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-import { ArrowUpDown, FileText, Search, Tag } from "lucide-react";
+import { ArrowUpDown, FileText, Mail, Search, Tag } from "lucide-react";
 import { useEffect, useState } from "react";
 import { FaFileAlt } from "react-icons/fa";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
@@ -17,6 +17,7 @@ const FeaturesBlog = () => {
   const [featureBlog, setFeatureBlog] = useState([]);
   const [sorting, setSorting] = useState([]);
   const [globalFilter, setGlobalFilter] = useState([]);
+  console.log(featureBlog);
 
   useEffect(() => {
     const fetchAllBlogData = async () => {
@@ -33,6 +34,14 @@ const FeaturesBlog = () => {
 
   const columnHelper = createColumnHelper();
   const columns = [
+    columnHelper.accessor("name", {
+      cell: (info) => info.getValue(),
+      header: () => (
+        <span className="flex items-center">
+          <FaFileAlt className="mr-2" /> Name
+        </span>
+      ),
+    }),
     columnHelper.accessor("title", {
       cell: (info) => info.getValue(),
       header: () => (
@@ -41,6 +50,7 @@ const FeaturesBlog = () => {
         </span>
       ),
     }),
+
     columnHelper.accessor("category", {
       cell: (info) => info.getValue(),
       header: () => (

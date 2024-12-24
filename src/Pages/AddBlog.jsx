@@ -25,6 +25,7 @@ const AddBlog = () => {
       sortDescription,
       longDescripntion,
       buyerInfo: user?.email,
+      buyerName: user?.displayName,
       date: format(new Date(), "Pp"),
     };
 
@@ -67,6 +68,7 @@ const AddBlog = () => {
             Blog Title
           </label>
           <input
+            required
             name="title"
             type="text"
             id="title"
@@ -78,6 +80,7 @@ const AddBlog = () => {
         {/* Image URL */}
         <div className="mb-4">
           <label
+            required
             htmlFor="imageUrl"
             className="block text-gray-600 font-medium mb-2"
           >
@@ -123,6 +126,7 @@ const AddBlog = () => {
             Short Description
           </label>
           <textarea
+            required
             name="sortDescription"
             id="shortDescription"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"

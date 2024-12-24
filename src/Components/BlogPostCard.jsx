@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeIn } from "../varriants";
 
 // import { useEffect, useState } from "react";
 
@@ -41,7 +43,13 @@ const BlogPostCard = ({ blog }) => {
   };
 
   return (
-    <div className="container mx-auto bg-white shadow-md rounded-lg overflow-hidden flex flex-col sm:flex-row  gap-8 space-x-6 p-6 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+    <motion.div
+      variants={fadeIn("right", 0.2)}
+      initial="hidden"
+      whileInView={"show"}
+      viewport={{ once: false, amount: 0.4 }}
+      className="container mx-auto bg-white shadow-md rounded-lg overflow-hidden flex flex-col sm:flex-row  gap-8 space-x-6 p-6 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+    >
       {/* Blog Image */}
       <div className="w-full sm:w-1/2">
         <img
@@ -70,7 +78,7 @@ const BlogPostCard = ({ blog }) => {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
