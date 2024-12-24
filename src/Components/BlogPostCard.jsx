@@ -41,9 +41,9 @@ const BlogPostCard = ({ blog }) => {
   };
 
   return (
-    <div className="container mx-auto bg-white shadow-md rounded-lg overflow-hidden flex items-center gap-8 space-x-6 p-6 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+    <div className="container mx-auto bg-white shadow-md rounded-lg overflow-hidden flex flex-col sm:flex-row  gap-8 space-x-6 p-6 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
       {/* Blog Image */}
-      <div className="w-1/2">
+      <div className="w-full sm:w-1/2">
         <img
           src={imageUrl}
           alt={title}
@@ -52,11 +52,11 @@ const BlogPostCard = ({ blog }) => {
       </div>
 
       {/* Blog Content */}
-      <div className="w-1/2 space-y-4 ">
+      <div className="w-full sm:w-1/2 space-y-4 flex flex-col justify-between ">
         <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
         <p className="text-gray-600 text-sm leading-6">{sortDescription}</p>
         <p className="text-gray-400 text-sm italic">{date}</p>
-        <div className="flex items-center space-x-4">
+        <div className="flex justify-end  space-x-4">
           <Link to={`/blog/${_id}`}>
             <button className="bg-blue-600 text-white text-sm py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">
               Read Blog

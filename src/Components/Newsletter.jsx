@@ -8,6 +8,7 @@ const Newsletter = () => {
     const email = formData.get("email");
     if (email) {
       toast.success("Thanks for Subscribing");
+      form.reset();
     } else {
       toast.error("Email not Valid");
     }

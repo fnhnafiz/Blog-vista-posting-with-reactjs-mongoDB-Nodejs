@@ -2,9 +2,12 @@ import axios from "axios";
 import { format } from "date-fns";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -37,6 +40,9 @@ const AddBlog = () => {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/add-blog`, blogData);
       //   console.log("Response from server:", data);
+      toast.success("Your Blog Add");
+      form.reset();
+      navigate("/all-blogs");
     } catch (error) {
       console.error("Error posting blog data:", error);
     }
@@ -147,7 +153,7 @@ const AddBlog = () => {
           type="submit"
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
         >
-          Submit Blog
+          Add Blog
         </button>
       </form>
     </div>
