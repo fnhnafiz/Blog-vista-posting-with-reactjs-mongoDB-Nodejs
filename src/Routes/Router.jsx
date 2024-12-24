@@ -9,6 +9,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import BlogDetails from "../Components/BlogDetails";
 import UpdateBlog from "../Components/UpdateBlog";
+import PrivateRoute from "../Private/PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -28,15 +29,27 @@ const Router = createBrowserRouter([
       },
       {
         path: "/all-blogs",
-        element: <AllBlog></AllBlog>,
+        element: (
+          <PrivateRoute>
+            <AllBlog></AllBlog>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/featured-blogs",
-        element: <FeaturesBlog></FeaturesBlog>,
+        element: (
+          <PrivateRoute>
+            <FeaturesBlog></FeaturesBlog>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/wishlist",
-        element: <WishList></WishList>,
+        element: (
+          <PrivateRoute>
+            <WishList></WishList>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -48,11 +61,19 @@ const Router = createBrowserRouter([
       },
       {
         path: "/blog/:id",
-        element: <BlogDetails></BlogDetails>,
+        element: (
+          <PrivateRoute>
+            <BlogDetails></BlogDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/update/:id",
-        element: <UpdateBlog></UpdateBlog>,
+        element: (
+          <PrivateRoute>
+            <UpdateBlog></UpdateBlog>
+          </PrivateRoute>
+        ),
       },
     ],
   },

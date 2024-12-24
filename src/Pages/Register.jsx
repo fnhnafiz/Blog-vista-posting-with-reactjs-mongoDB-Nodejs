@@ -2,12 +2,13 @@ import toast from "react-hot-toast";
 
 import logo from "../../src/assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../Hooks/useAuth";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
   const navigate = useNavigate();
   const { signInWithGoogle, createUser, updateUserProfile, setUser } =
-    useAuth();
+    useContext(AuthContext);
 
   const handleSignUp = async (e) => {
     e.preventDefault();

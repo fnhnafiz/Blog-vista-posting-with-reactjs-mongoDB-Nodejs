@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useAuth } from "../Hooks/useAuth";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const { user } = useAuth();
+  const { user } = useContext(AuthContext);
   // console.log(id);
   const [blog, setBlog] = useState({});
   const [comments, setComments] = useState([]);

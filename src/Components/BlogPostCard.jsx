@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../Hooks/useAuth";
+
 // import { useEffect, useState } from "react";
-import axios from "axios";
+
 import toast from "react-hot-toast";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+// import { axiosSecure } from "../Hooks/useAxiosSecure";
 // import { format } from "date-fns";
 
 const BlogPostCard = ({ blog }) => {
-  const { user } = useAuth();
-  const { title, imageUrl, category, sortDescription, _id, date } = blog;
+  const axiosSecure = useAxiosSecure();
+  const { user } = useContext(AuthContext);
+  const { title, imageUrl, sortDescription, _id, date } = blog;
   // const [watchList, setWatchlist] = useState([]);
 
   const handleWishlist = async () => {
@@ -22,11 +27,8 @@ const BlogPostCard = ({ blog }) => {
     };
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/waishlist`,
-        wishlistData
-      );
-      console.log(response.data, "Response");
+      const response = await axiosSecure.post(`/waishlist`, wishlistData);
+      // console.log(response.data, "Response");
       if (response.data.message === "Already exist") {
         toast.error("This blog is already in your wishlist!");
       } else {

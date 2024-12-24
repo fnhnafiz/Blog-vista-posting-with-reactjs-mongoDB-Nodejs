@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useAuth } from "../Hooks/useAuth";
 import { format } from "date-fns";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AddBlog = () => {
-  const { user } = useAuth();
+  const { user } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;

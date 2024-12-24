@@ -1,11 +1,12 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import BlogPostCard from "../Components/BlogPostCard";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const AllBlog = () => {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
+  const axiosSecure = useAxiosSecure();
   // console.log(search);
   // console.log(category);
 
@@ -13,10 +14,8 @@ const AllBlog = () => {
     // Fetch blogs based on search and category
     const fetchAllBlogData = async () => {
       try {
-        const { data } = await axios.get(
-          `${
-            import.meta.env.VITE_API_URL
-          }/all-blogs?search=${search}&category=${category}`
+        const { data } = await axiosSecure.get(
+          `/all-blogs?search=${search}&category=${category}`
         );
         setBlogs(data);
       } catch (error) {

@@ -1,14 +1,15 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../Hooks/useAuth";
 import toast from "react-hot-toast";
 import logo from "../../src/assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state || "/";
   // console.log(from);
-  const { signIn, signInWithGoogle } = useAuth();
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
 
   // Google Signin
   const handleGoogleSignIn = async () => {

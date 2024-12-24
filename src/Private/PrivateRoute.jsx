@@ -1,9 +1,11 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { useAuth } from "../Hooks/useAuth";
 import Loading from "../Components/Loading";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
-  const { user, loading } = useAuth;
+  const { user, loading } = useContext(AuthContext);
+  // console.log(user);
 
   const location = useLocation();
 
@@ -11,7 +13,7 @@ const PrivateRoute = ({ children }) => {
     return <Loading></Loading>;
   }
 
-  if (user && user?.photoURL) {
+  if (user) {
     return children;
   }
 

@@ -6,12 +6,14 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import axios from "axios";
+
 import { ArrowUpDown, FileText, Search, Tag } from "lucide-react";
 import { useEffect, useState } from "react";
 import { FaFileAlt } from "react-icons/fa";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const FeaturesBlog = () => {
+  const axiosSecure = useAxiosSecure();
   const [featureBlog, setFeatureBlog] = useState([]);
   const [sorting, setSorting] = useState([]);
   const [globalFilter, setGlobalFilter] = useState([]);
@@ -19,9 +21,7 @@ const FeaturesBlog = () => {
   useEffect(() => {
     const fetchAllBlogData = async () => {
       try {
-        const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/features-blogs`
-        );
+        const { data } = await axiosSecure.get(`/features-blogs`);
         setFeatureBlog(data);
       } catch (error) {
         console.error("Error fetching blog data:", error);

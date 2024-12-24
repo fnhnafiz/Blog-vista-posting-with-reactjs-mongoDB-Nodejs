@@ -1,18 +1,17 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useAuth } from "../Hooks/useAuth";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const WishList = () => {
-  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const { user } = useContext(AuthContext);
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
     const fetchWatchlistBlogData = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/wishlist/${user?.email}`
-      );
+      const { data } = await axiosSecure.get(`/wishlist/${user?.email}`);
       setWishlist(data);
     };
     fetchWatchlistBlogData();
@@ -21,9 +20,7 @@ const WishList = () => {
   // console.log(wishlist);
   const handleWishListDelete = async (id) => {
     try {
-      const { data } = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/wishlist/${id}`
-      );
+      const { data } = await axiosSecure.delete(`/wishlist/${id}`);
       console.log("Delete response:", data);
       if (data.deletedCount > 0) {
         const remaining = wishlist.filter((item) => item._id !== id);

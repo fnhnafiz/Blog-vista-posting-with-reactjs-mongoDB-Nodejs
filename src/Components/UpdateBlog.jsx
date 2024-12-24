@@ -1,13 +1,13 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAuth } from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const UpdateBlog = () => {
   const { id } = useParams();
   //   console.log(id);
-  const { user } = useAuth();
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [updateBlog, setUpdateBlog] = useState({});
   //   console.log("data", updateBlog);
