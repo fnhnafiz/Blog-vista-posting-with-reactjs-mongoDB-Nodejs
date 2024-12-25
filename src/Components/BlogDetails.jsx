@@ -82,13 +82,14 @@ const BlogDetails = () => {
   } = blog;
 
   return (
-    <div className="flex flex-col md:flex-row gap-5">
+    <div className="flex flex-col md:flex-row gap-5 pt-24">
       <div className="container mx-auto md:w-[70%] p-6 my-10 bg-white rounded-lg shadow-lg">
         {/* Blog Header */}
         <div className="space-y-3">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">{title}</h1>
           <p className="text-gray-600 mt-2">
-            Short Description: {sortDescription}
+            <span className="font-semibold mr-2">Description:</span>
+            {sortDescription}
           </p>
 
           <img
@@ -127,6 +128,7 @@ const BlogDetails = () => {
           </h2>
           <form onSubmit={handleSubmitCommet} className="flex flex-col gap-4">
             <textarea
+              required
               name="comment"
               placeholder="Write your comment here..."
               className="w-full p-4 text-gray-700 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"

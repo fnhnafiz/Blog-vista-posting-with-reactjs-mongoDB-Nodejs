@@ -9,7 +9,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname);
+  // console.log(pathname);
   const [menuBar, setMenuBar] = useState(false);
   const [color, setColur] = useState(false);
   const changeColor = () => {

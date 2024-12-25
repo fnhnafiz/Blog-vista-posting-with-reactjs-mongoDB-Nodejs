@@ -8,7 +8,8 @@ const WishList = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [wishlist, setWishlist] = useState([]);
-  console.log("I am user in wishlist", user);
+  // console.log("I am user in wishlist", user);
+  console.log(wishlist);
 
   useEffect(() => {
     if (user?.email) {
@@ -87,7 +88,7 @@ const WishList = () => {
                       {item.title}
                     </td>
                     <td className="py-3 px-6 text-gray-600">{item.category}</td>
-                    <td className="py-3 px-6 text-gray-500">{item.addDate}</td>
+                    <td className="py-3 px-6 text-gray-500">{item.date}</td>
                     <td className="py-3 px-6">
                       <div className="flex gap-3 justify-center">
                         <Link to={`/blog/${item._id}`}>

@@ -37,12 +37,13 @@ const Home = () => {
             Recent Blogs Post
           </h1>
           <p className="text-gray-400 font-semibold text-center text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            labore atque aut laborum quia praesentium repudiandae deserunt ipsam
-            pariatur officiis. Alias fugiat nemo deserunt nostrum ullam dolorem
-            minima? Nobis repellendus officiis veritatis sequi esse nemo ullam,
-            reiciendis quas recusandae aliquam optio architecto dignissimos
-            error molestiae voluptatum dolor accusamus? Voluptates, dolor!
+            Explore the Latest on BlogVista! Dive into our newest blog post,
+            where we share thought-provoking ideas, practical tips, and engaging
+            stories designed to inspire and inform. Whether you're here to
+            discover trends, deepen your knowledge, or spark creativity, this
+            post brings you closer to the heart of what BlogVista stands for—a
+            platform to connect, create, and share. Join the conversation and
+            let your voice be heard!
           </p>
         </motion.div>
         <div>

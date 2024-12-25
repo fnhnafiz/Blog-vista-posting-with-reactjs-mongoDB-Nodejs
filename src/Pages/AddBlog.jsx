@@ -1,15 +1,25 @@
 import axios from "axios";
 import { format } from "date-fns";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FaPenFancy, FaLightbulb, FaImage, FaEdit } from "react-icons/fa";
 import { FiCheckCircle } from "react-icons/fi";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const AddBlog = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
+  const email = user?.email;
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axiosSecure.get(`/check-user?email=${email}`);
+      console.log(data);
+    };
+    fetchData();
+  }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,8 +27,8 @@ const AddBlog = () => {
     const title = formData.get("title");
     const imageUrl = formData.get("imageUrl");
     const category = formData.get("category");
-    const sortDescription = formData.get("sortDescription");
-    const longDescripntion = formData.get("longDescripntion");
+    const sortDescription = formData.get("shortDescription");
+    const longDescripntion = formData.get("longDescription");
 
     const blogData = {
       title,
@@ -32,16 +42,9 @@ const AddBlog = () => {
     };
 
     console.log(blogData);
-    // const apiUrl = `${import.meta.env.VITE_API_URL}/add-blog`;
-    // console.log(apiUrl);
-    // // make a post with axios and send data in server
-    // const { data } = await axios.post(
-    //   `${import.meta.env.VITE_API_URL}/add-blog`,
-    //   blogData
-    // );
-    // console.log(data);
+
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/add-blog`, blogData);
+      await axiosSecure.post(`/add-blog?email=${email}`, blogData);
       //   console.log("Response from server:", data);
       toast.success("Your Blog Add");
       form.reset();
@@ -221,7 +224,7 @@ const AddBlog = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:ring focus:ring-indigo-300"
+            className="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300"
           >
             Add Blog
           </button>
