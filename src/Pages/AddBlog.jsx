@@ -52,7 +52,7 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="flex justify-center gap-6 items-center min-h-screen   p-4">
+    <div className="flex justify-center gap-6 items-center min-h-screen pt-20  p-4">
       <div className=" flex flex-col gap-6 md:flex-row items-start w-full max-w-7xl bg-white shadow-lg rounded-lg">
         {/* Left Side Content */}
         <div className="w-full bg-gradient-to-br from-purple-500 to-indigo-700 text-white p-[30px] rounded-l-lg">

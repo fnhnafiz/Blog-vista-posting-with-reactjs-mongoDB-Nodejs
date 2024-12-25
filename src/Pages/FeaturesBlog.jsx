@@ -84,7 +84,7 @@ const FeaturesBlog = () => {
   });
 
   return (
-    <div className="flex flex-col min-h-screen max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col min-h-screen max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8 pt-24">
       <div className="mb-4 text-center">
         <h2 className="text-3xl font-extrabold text-gray-800">
           Top-Ranked Blog Posts

@@ -32,7 +32,7 @@ const AllBlog = () => {
   // console.log(blogs);
 
   return (
-    <div>
+    <div className="pt-20">
       <div className="text-center my-8">
         <h1 className="text-4xl font-extrabold text-gray-800">
           All Blog Posts
@@ -42,13 +42,13 @@ const AllBlog = () => {
           search bar or select a category to find posts that interest you.
         </p>
       </div>
-      <div className="flex justify-around items-center mt-12">
+      <div className="flex flex-col md:flex-row gap-5 md:justify-around items-center mt-12">
         <div>
-          <h1 className="text-3xl font-extrabold text-center ">
+          <h1 className="text-xl md:text-3xl font-extrabold text-center ">
             See All BLOG POST
           </h1>
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">
+        <div className="flex flex-col md:flex-row md:flex-row justify-center items-center gap-5 ">
           <p className="text-xl font-bold text-green-500">
             Choose Your Category:
           </p>

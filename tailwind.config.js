@@ -6,7 +6,7 @@ export default {
     extend: {
       backgroundImage: {
         bannerImg: "url('/src/assets/Banner.jpg')",
-        newsletterImg: "url('./src/assets/newsletter-image.jpg')",
+        newsletterImg: "url('/src/assets/newsletter-image.jpg')",
       },
     },
   },

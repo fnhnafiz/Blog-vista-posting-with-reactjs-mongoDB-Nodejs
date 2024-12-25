@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { IoMenu } from "react-icons/io5";
@@ -8,8 +8,18 @@ import clsx from "clsx";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  console.log(pathname);
   const [menuBar, setMenuBar] = useState(false);
-
+  const [color, setColur] = useState(false);
+  const changeColor = () => {
+    if (window.scrollY >= 90) {
+      setColur(true);
+    } else {
+      setColur(false);
+    }
+  };
+  window.addEventListener("scroll", changeColor);
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -20,7 +30,15 @@ const Navbar = () => {
       });
   };
   return (
-    <div className=" flex justify-between px-8 items-center py-6 border-b">
+    <div
+      className={
+        color
+          ? `header header-bg flex justify-between px-8 items-center py-6  text-white ${
+              pathname === "/" && "text-white"
+            }`
+          : `header  flex justify-between px-8 items-center py-6 text-white`
+      }
+    >
       {/* Left section in navbar */}
       <div className="flex items-center justify-between">
         <section className="flex items-center gap-4">
@@ -31,33 +49,64 @@ const Navbar = () => {
           />
           {/* website name */}
           <Link to="/">
-            <h1 className="text-2xl font-bold">BLOG VISTA</h1>
+            <h1
+              className={`text-2xl font-bold ${
+                pathname !== "/" && "text-black"
+              } ${color && "text-white"}`}
+            >
+              BLOG VISTA
+            </h1>
           </Link>
         </section>
         {/* Links in the center */}
         <ul className="hidden lg:block lg:flex space-x-6 ">
           <li>
-            <NavLink to="/" className="hover:text-red-500 ml-6">
+            <NavLink
+              to="/"
+              className={`hover:text-red-500 font-semibold ml-6 ${
+                pathname !== "/" && "text-black"
+              } ${color && "text-white"}`}
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/add-blog" className="hover:text-red-500">
+            <NavLink
+              to="/add-blog"
+              className={`hover:text-red-500 font-semibold ${
+                pathname !== "/" && "text-black"
+              } ${color && "text-white"}`}
+            >
               Add Blog
             </NavLink>
           </li>
           <li>
-            <NavLink to="/all-blogs" className="hover:text-red-500">
+            <NavLink
+              to="/all-blogs"
+              className={`hover:text-red-500 font-semibold ${
+                pathname !== "/" && "text-black"
+              } ${color && "text-white"}`}
+            >
               All Blogs
             </NavLink>
           </li>
           <li>
-            <NavLink to="/featured-blogs" className="hover:text-red-500">
+            <NavLink
+              to="/featured-blogs"
+              className={`hover:text-red-500 font-semibold ${
+                pathname !== "/" && "text-black"
+              } ${color && "text-white"}`}
+            >
               Featured Blogs
             </NavLink>
           </li>
           <li>
-            <NavLink to="/wishlist" className="hover:text-red-500">
+            <NavLink
+              to="/wishlist"
+              className={`hover:text-red-500 font-semibold ${
+                pathname !== "/" && "text-black"
+              } ${color && "text-white"}`}
+            >
               Wishlist
             </NavLink>
           </li>
@@ -78,27 +127,39 @@ const Navbar = () => {
           {/* Links in the center */}
           <ul className="flex flex-col gap-8 space-x-6">
             <li>
-              <NavLink to="/" className="hover:text-red-500 ml-6">
+              <NavLink to="/" className="hover:text-red-500 font-semibold ml-6">
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/add-blog" className="hover:text-red-500">
+              <NavLink
+                to="/add-blog"
+                className="hover:text-red-500 font-semibold"
+              >
                 Add Blog
               </NavLink>
             </li>
             <li>
-              <NavLink to="/all-blogs" className="hover:text-red-500">
+              <NavLink
+                to="/all-blogs"
+                className="hover:text-red-500 font-semibold"
+              >
                 All Blogs
               </NavLink>
             </li>
             <li>
-              <NavLink to="/featured-blogs" className="hover:text-red-500">
+              <NavLink
+                to="/featured-blogs"
+                className="hover:text-red-500 font-semibold"
+              >
                 Featured Blogs
               </NavLink>
             </li>
             <li>
-              <NavLink to="/wishlist" className="hover:text-red-500">
+              <NavLink
+                to="/wishlist"
+                className="hover:text-red-500 font-semibold"
+              >
                 Wishlist
               </NavLink>
             </li>
