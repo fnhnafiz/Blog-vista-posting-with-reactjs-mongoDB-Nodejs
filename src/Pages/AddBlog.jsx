@@ -58,7 +58,7 @@ const AddBlog = () => {
     <div className="flex justify-center gap-6 items-center min-h-screen pt-20  p-4">
       <div className=" flex flex-col gap-6 md:flex-row items-start w-full max-w-7xl bg-white shadow-lg rounded-lg">
         {/* Left Side Content */}
-        <div className="w-full bg-gradient-to-br from-purple-500 to-indigo-700 text-white p-[30px] rounded-l-lg">
+        <div className="w-full sm:h-[800px] p-10 bg-gradient-to-br from-purple-500 to-indigo-700 text-white  rounded-l-lg">
           <h2 className="text-3xl font-bold mb-4 flex items-center">
             <FaPenFancy className="mr-2 text-yellow-300" /> Why Post This Blog?
           </h2>
@@ -74,12 +74,7 @@ const AddBlog = () => {
             core message behind your content. It helps them see the relevance of
             the topic, whether it’s something that’s currently trending, a
             personal story, or a piece of valuable information that can help
-            them in their lives or work. It’s also an invitation to the reader
-            to dive deeper into your blog and engage with the ideas you’re
-            sharing. Think about why you're writing this blog. What is it that
-            makes this topic special? What inspired you to put your thoughts
-            into words? Are you trying to solve a problem, share a personal
-            experience. Thank You!!
+            them in their lives or work.
           </p>
           <ul className="text-sm space-y-6">
             <li className="flex items-start">
@@ -124,7 +119,7 @@ const AddBlog = () => {
         {/* Form */}
         <form
           onSubmit={handleSubmit}
-          className="w-full md:w-2/3 bg-white py-10 px-6 rounded-r-lg  bg-gradient-to-br from-purple-500 to-indigo-700"
+          className="w-full sm:h-[800px] p-10  md:w-2/3 bg-white  rounded-r-lg  bg-gradient-to-br from-purple-500 to-indigo-700"
         >
           <h2 className="text-xl sm:text-[26px] font-bold text-white mb-6 text-center">
             WRITE YOUR NEW BLOG HERE
