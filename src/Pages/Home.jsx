@@ -27,14 +27,14 @@ const Home = () => {
       <Banner></Banner>
       <div>
         <motion.div
-          variants={fadeIn("up", 0.3)}
+          variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
-          className="pt-6 space-y-3 px-6 md:px-24"
+          viewport={{ once: false, amount: 0.5 }}
+          className="pt-6 space-y-3 px-6 md:px-24 py-6 md:py-12 my-8"
         >
           <h1 className="font-extrabold text-5xl text-center">
-            Recent all Blogs
+            Recent Blogs Post
           </h1>
           <p className="text-gray-400 font-semibold text-center text-lg">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio

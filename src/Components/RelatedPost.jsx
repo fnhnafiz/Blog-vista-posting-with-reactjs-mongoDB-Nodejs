@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { fadeIn } from "../varriants";
+
 const RelatedPost = () => {
   const posts = [
     {
@@ -28,7 +31,13 @@ const RelatedPost = () => {
 
   return (
     <section className="bg-gray-900 py-16 px-6">
-      <div className="max-w-6xl mx-auto">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.3 }}
+        className="max-w-6xl mx-auto"
+      >
         {/* Section Header */}
         <h2 className="text-4xl font-bold text-white text-center mb-12">
           Related Posts
@@ -51,13 +60,19 @@ const RelatedPost = () => {
               </div>
 
               {/* Post Content */}
-              <div className="p-4">
+              <motion.div
+                variants={fadeIn("right", 0.3)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false, amount: 0.3 }}
+                className="p-4"
+              >
                 <p className="text-sm text-gray-400">{post.category}</p>
                 <h3 className="text-lg font-semibold text-white mt-2 mb-4">
                   {post.title}
                 </h3>
                 <p className="text-sm text-gray-500">{post.date}</p>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>
@@ -68,7 +83,7 @@ const RelatedPost = () => {
             View All Posts
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -19,7 +19,7 @@ const Navbar = () => {
     <div className="bg-gray-800 text-white">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         {/* Website Name on Left */}
-        <div className="text-2xl font-bold">My Website</div>
+        <h1 className="text-2xl font-bold">BLOG VISTA</h1>
 
         {/* Links in the center */}
         <ul className="hidden md:flex space-x-6">

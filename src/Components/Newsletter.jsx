@@ -1,4 +1,6 @@
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { fadeIn } from "../varriants";
 
 const Newsletter = () => {
   const handleSubmitMessage = (e) => {
@@ -15,17 +17,30 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="lg:w-10/12 flex flex-col justify-center items-center mx-auto pt-10 pb-12 px-6 bg-gradient-to-b from-gray-50 to-white">
+    <section className="bg-newsletterImg bg-cover bg-no-repeat  flex flex-col justify-center items-center mx-auto py-16 px-6 ">
       {/* Heading */}
-      <h2 className="text-4xl text-center font-bold mb-8">
-        Join the{" "}
-        <span className="bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
-          Blog Community
-        </span>
-      </h2>
+      <motion.div
+        variants={fadeIn("right", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        <h2 className="text-4xl text-center text-white font-bold mb-8">
+          Join the{" "}
+          <span className="bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+            Blog Community
+          </span>
+        </h2>
+      </motion.div>
 
       {/* Newsletter Card */}
-      <div className="rounded-xl bg-white shadow-lg flex flex-col items-center text-center p-8 w-full max-w-3xl">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.3 }}
+        className="rounded-xl bg-white shadow-lg flex flex-col items-center text-center p-8 w-full max-w-3xl"
+      >
         <h3 className="text-2xl md:text-3xl font-semibold mb-4">
           Stay Updated with Our Weekly Insights!
         </h3>
@@ -53,7 +68,7 @@ const Newsletter = () => {
             Subscribe
           </button>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 };

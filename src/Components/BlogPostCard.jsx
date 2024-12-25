@@ -44,10 +44,10 @@ const BlogPostCard = ({ blog }) => {
 
   return (
     <motion.div
-      variants={fadeIn("right", 0.2)}
+      variants={fadeIn("up", 0.7)}
       initial="hidden"
       whileInView={"show"}
-      viewport={{ once: false, amount: 0.4 }}
+      viewport={{ once: false, amount: 0.5 }}
       className="container mx-auto bg-white shadow-md rounded-lg overflow-hidden flex flex-col sm:flex-row  gap-8 space-x-6 p-6 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
     >
       {/* Blog Image */}

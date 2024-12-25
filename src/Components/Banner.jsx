@@ -9,15 +9,20 @@ const Banner = () => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.3 }}
+        className="space-y-5"
       >
         <h1 className="text-white font-bold text-4xl md:text-7xl text-center">
-          Where will you go next?
+          "Welcome to BlogVista!! Your Gateway to Stories, Ideas, and
+          Inspiration"
         </h1>
-        <p className="text-white text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-          labore. Error minima, odio ipsam ad aperiam consequatur natus nesciunt
-          illum laboriosam ratione nihil doloremque eligendi.
+        <p className="text-white text-center font-thin text-xl">
+          At BlogVista, we believe in the power of words to inspire, inform, and
+          connect. Dive into a diverse collection of blogs that cover topics you
+          love, spark new interests, and fuel your imagination. Join us in
+          creating a dynamic space where your voice matters, and every story
+          finds a home
         </p>
+        <button className="btn btn-warning block mx-auto">Join with us</button>
       </motion.div>
     </div>
   );

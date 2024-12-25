@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { fadeIn } from "../varriants";
+
 const QuotePost = () => {
   return (
     <section className="relative max-w-5xl mx-auto my-8 rounded-xl bg-gradient-to-bl from-gray-900 via-gray-800 to-gray-900 text-white py-16 overflow-hidden">
@@ -5,7 +8,13 @@ const QuotePost = () => {
       <div className="absolute top-0 left-0 w-40 h-40 bg-red-500 opacity-20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-40 h-40 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
 
-      <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+      <motion.div
+        variants={fadeIn("left", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.3 }}
+        className="max-w-6xl mx-auto px-6 text-center relative z-10"
+      >
         {/* Quote Icon */}
         <div className="flex justify-center mb-8">
           <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-full h-16 w-16 flex items-center justify-center shadow-xl animate-pulse">
@@ -33,7 +42,7 @@ const QuotePost = () => {
 
         {/* Author */}
         <p className="text-lg text-gray-400 font-medium">— Steve Jobs</p>
-      </div>
+      </motion.div>
 
       {/* Decorative Divider */}
       <div className="flex justify-center items-center mt-12 space-x-2">
