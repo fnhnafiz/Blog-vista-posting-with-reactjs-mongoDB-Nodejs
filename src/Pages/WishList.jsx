@@ -8,14 +8,17 @@ const WishList = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [wishlist, setWishlist] = useState([]);
+  console.log("I am user in wishlist", user);
 
   useEffect(() => {
-    const fetchWatchlistBlogData = async () => {
-      const { data } = await axiosSecure.get(`/wishlist/${user?.email}`);
-      setWishlist(data);
-    };
-    fetchWatchlistBlogData();
-  }, [user?.email]);
+    if (user?.email) {
+      const fetchWatchlistBlogData = async () => {
+        const { data } = await axiosSecure.get(`/wishlist/${user?.email}`);
+        setWishlist(data);
+      };
+      fetchWatchlistBlogData();
+    }
+  }, [user?.email, axiosSecure]);
 
   // console.log(wishlist);
   const handleWishListDelete = async (id) => {

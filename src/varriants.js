@@ -9,7 +9,7 @@ export const fadeIn = (direction, delay) => {
     show: {
       y: 0,
       x: 0,
-      opacity: 1,
+      opacity: 1.5,
       transition: {
         type: "tween",
         duration: 0.7,

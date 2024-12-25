@@ -16,3 +16,7 @@ html p,
 span {
   font-family: "Poppins", serif;
 }
+.active {
+  color: red;
+  text-decoration: underline;
+}
