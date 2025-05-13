@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BlogPostCard from "../Components/BlogPostCard";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 // import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const AllBlog = () => {
@@ -33,6 +34,11 @@ const AllBlog = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>BLOG POST</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="text-center my-8">
         <h1 className="text-4xl font-extrabold text-gray-800">
           All Blog Posts

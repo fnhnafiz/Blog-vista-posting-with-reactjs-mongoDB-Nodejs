@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const WishList = () => {
   const axiosSecure = useAxiosSecure();
@@ -40,6 +41,11 @@ const WishList = () => {
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>WISHLIST</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <section className="px-2 md:px-5 container mx-auto w-full xl:w-10/12 flex flex-col justify-center items-center overflow-x-auto  pt-[120px] py-10">
         {/* Heading Section */}
         <div className="mb-6 text-center">

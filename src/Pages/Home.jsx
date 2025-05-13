@@ -4,6 +4,7 @@ import axios from "axios";
 import Banner from "../Components/Banner";
 import { motion } from "framer-motion";
 import { fadeIn } from "../varriants";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -24,6 +25,11 @@ const Home = () => {
   }, []);
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>HOME</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <Banner></Banner>
       <div>
         <motion.div

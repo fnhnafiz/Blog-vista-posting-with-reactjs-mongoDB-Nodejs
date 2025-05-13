@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
   // onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      console.log("CurrentUser-->", currentUser);
+      // console.log("CurrentUser-->", currentUser);
       setUser(currentUser);
       if (currentUser?.email) {
         setUser(currentUser);
@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
           { withCredentials: true }
         );
         setLoading(false);
-        console.log(data);
+        // console.log(data);
       } else {
         setUser(currentUser);
         const { data } = await axios.get(

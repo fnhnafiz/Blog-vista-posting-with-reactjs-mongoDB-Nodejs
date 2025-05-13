@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "../varriants";
+import { Link } from "react-router-dom";
 
 const RelatedPost = () => {
   const posts = [
@@ -79,9 +80,11 @@ const RelatedPost = () => {
 
         {/* View All Button */}
         <div className="flex justify-center mt-12">
-          <button className="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition">
-            View All Posts
-          </button>
+          <Link to="/all-blogs">
+            <button className="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition">
+              View All Posts
+            </button>
+          </Link>
         </div>
       </motion.div>
     </section>

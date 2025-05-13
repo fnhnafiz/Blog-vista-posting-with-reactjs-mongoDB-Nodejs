@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -83,6 +84,11 @@ const BlogDetails = () => {
 
   return (
     <div className="flex flex-col md:flex-row gap-5 pt-24">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>BLOG DETAILS</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="container mx-auto md:w-[70%] p-6 my-10 bg-white rounded-lg shadow-lg">
         {/* Blog Header */}
         <div className="space-y-3">

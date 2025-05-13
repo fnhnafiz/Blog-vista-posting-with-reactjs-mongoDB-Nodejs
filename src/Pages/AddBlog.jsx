@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { FaPenFancy, FaLightbulb, FaImage, FaEdit } from "react-icons/fa";
 import { FiCheckCircle } from "react-icons/fi";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const AddBlog = () => {
   const { user } = useContext(AuthContext);
@@ -56,6 +57,11 @@ const AddBlog = () => {
 
   return (
     <div className="flex justify-center gap-6 items-center min-h-screen pt-20  p-4">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>ADD BLOG POST</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className=" flex flex-col gap-6 md:flex-row items-start w-full max-w-7xl bg-white shadow-lg rounded-lg">
         {/* Left Side Content */}
         <div className="w-full sm:h-[800px] p-10 bg-gradient-to-br from-purple-500 to-indigo-700 text-white  rounded-l-lg">

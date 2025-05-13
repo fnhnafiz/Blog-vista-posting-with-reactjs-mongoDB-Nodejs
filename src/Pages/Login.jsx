@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import logo from "../../src/assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -43,6 +44,11 @@ const Login = () => {
   };
   return (
     <div className=" flex justify-center items-center min-h-[calc(100vh-306px)] my-12 pt-24">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>LOGIN PAGE</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
         <div className="hidden bg-bannerImg bg-cover bg-center lg:block lg:w-1/2"></div>
 

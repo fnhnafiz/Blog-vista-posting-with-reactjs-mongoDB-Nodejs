@@ -17,7 +17,10 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="bg-newsletterImg bg-cover bg-no-repeat  flex flex-col justify-center items-center mx-auto py-16 px-6 ">
+    <section
+      id="joinWithUs"
+      className="bg-newsletterImg bg-cover bg-no-repeat  flex flex-col justify-center items-center mx-auto py-16 px-6 "
+    >
       {/* Heading */}
       <motion.div
         variants={fadeIn("right", 0.3)}

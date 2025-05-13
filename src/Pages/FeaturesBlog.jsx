@@ -10,6 +10,7 @@ import axios from "axios";
 
 import { ArrowUpDown, FileText, Search, Tag } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { FaFileAlt } from "react-icons/fa";
 // import useAxiosSecure from "../Hooks/useAxiosSecure";
 
@@ -85,6 +86,11 @@ const FeaturesBlog = () => {
 
   return (
     <div className="flex flex-col min-h-screen max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8 pt-24">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>FEATURES BLOG</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="mb-4 text-center">
         <h2 className="text-3xl font-extrabold text-gray-800">
           Top-Ranked Blog Posts

@@ -63,7 +63,7 @@ const BlogPostCard = ({ blog }) => {
       <div className="w-full sm:w-1/2 space-y-4 flex flex-col justify-between ">
         <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
         <p className="text-gray-600 text-sm leading-6">{sortDescription}</p>
-        <p className="text-gray-400 text-sm italic">{date}</p>
+        <p className="text-green-500 text-sm">{date}</p>
         <div className="flex justify-end  space-x-4">
           <Link to={`/blog/${_id}`}>
             <button className="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition  duration-200">

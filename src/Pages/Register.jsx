@@ -4,6 +4,7 @@ import logo from "../../src/assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -63,6 +64,11 @@ const Register = () => {
   };
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12 pt-24">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>REGISTER PAGE</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
           <div className="flex justify-center mx-auto">

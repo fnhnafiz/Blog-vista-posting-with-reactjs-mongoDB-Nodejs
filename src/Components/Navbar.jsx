@@ -45,12 +45,14 @@ const Navbar = () => {
           {/* Menu bar */}
           <IoMenu
             onClick={() => setMenuBar(true)}
-            className="text-4xl cursor-pointer lg:hidden"
+            className={`text-4xl cursor-pointer lg:hidden ${
+              pathname !== "/" && "text-black"
+            } ${color && "text-white"}`}
           />
           {/* website name */}
           <Link to="/">
             <h1
-              className={`text-2xl font-bold ${
+              className={`texl-xl md:text-2xl font-bold ${
                 pathname !== "/" && "text-black"
               } ${color && "text-white"}`}
             >
