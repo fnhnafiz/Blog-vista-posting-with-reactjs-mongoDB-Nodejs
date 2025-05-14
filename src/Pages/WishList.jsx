@@ -9,7 +9,6 @@ const WishList = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [wishlist, setWishlist] = useState([]);
-  // console.log("I am user in wishlist", user);
   console.log(wishlist);
 
   useEffect(() => {
