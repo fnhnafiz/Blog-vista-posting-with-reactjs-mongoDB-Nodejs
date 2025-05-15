@@ -129,12 +129,17 @@ const Navbar = () => {
           {/* Links in the center */}
           <ul className="flex flex-col gap-8 space-x-6">
             <li>
-              <NavLink to="/" className="hover:text-red-500 font-semibold ml-6">
+              <NavLink
+                onClick={() => setMenuBar(false)}
+                to="/"
+                className="hover:text-red-500 font-semibold ml-6"
+              >
                 Home
               </NavLink>
             </li>
             <li>
               <NavLink
+                onClick={() => setMenuBar(false)}
                 to="/add-blog"
                 className="hover:text-red-500 font-semibold"
               >
@@ -143,6 +148,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
+                onClick={() => setMenuBar(false)}
                 to="/all-blogs"
                 className="hover:text-red-500 font-semibold"
               >
@@ -151,6 +157,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
+                onClick={() => setMenuBar(false)}
                 to="/featured-blogs"
                 className="hover:text-red-500 font-semibold"
               >
@@ -159,6 +166,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
+                onClick={() => setMenuBar(false)}
                 to="/wishlist"
                 className="hover:text-red-500 font-semibold"
               >

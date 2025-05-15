@@ -18,11 +18,11 @@ const Banner = () => {
         viewport={{ once: false, amount: 0.3 }}
         className="space-y-5"
       >
-        <h1 className="text-white font-bold text-4xl md:text-7xl text-center">
+        <h1 className="text-white font-bold text-[35px] md:text-5xl text-center">
           "Welcome to BlogVista!! Your Gateway to Stories, Ideas, and
           Inspiration"
         </h1>
-        <p className="text-white text-center font-thin text-xl">
+        <p className="text-white text-center font-normal text-xl">
           At BlogVista, we believe in the power of words to inspire, inform, and
           connect. Dive into a diverse collection of blogs that cover topics you
           love, spark new interests, and fuel your imagination. Join us in
